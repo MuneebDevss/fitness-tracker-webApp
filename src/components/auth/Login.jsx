@@ -14,7 +14,6 @@ const Login = () => {
     
     try {
       await login(email, password);
-      // Redirect or navigate to dashboard
     } catch (err) {
       setError('Invalid email or password');
     }
@@ -22,7 +21,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left Side - Image */}
+      {}
       <div 
         className="hidden lg:block w-1/2 bg-cover bg-center"
         style={{ 
@@ -39,7 +38,7 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Right Side - Login Form */}
+      {}
       <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Login to Fitness Tracker</h2>

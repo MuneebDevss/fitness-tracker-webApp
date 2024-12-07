@@ -35,7 +35,6 @@ const Registration = () => {
         email: formData.email,
         password: formData.password
       });
-      // Redirect or navigate to dashboard
     } catch (err) {
       setError(err.message || 'Registration failed');
     }
@@ -43,7 +42,7 @@ const Registration = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left Side - Image */}
+      {}
       <div 
         className="hidden lg:block w-1/2 bg-cover bg-center"
         style={{ 
@@ -60,7 +59,7 @@ const Registration = () => {
         </div>
       </div>
 
-      {/* Right Side - Registration Form */}
+      {}
       <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create Your Account</h2>
