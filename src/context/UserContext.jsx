@@ -82,7 +82,6 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-// Custom hook for easier context consumption
 export const useUserContext = () => {
   const context = useContext(UserContext);
   

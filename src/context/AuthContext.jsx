@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check authentication status on initial load
     const checkAuthStatus = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -26,7 +25,6 @@ export const AuthProvider = ({ children }) => {
           setIsAuthenticated(true);
         }
       } catch (error) {
-        // Token invalid or expired
         localStorage.removeItem('token');
         setIsAuthenticated(false);
         setUser(null);
@@ -42,16 +40,16 @@ export const AuthProvider = ({ children }) => {
     try {
       const { token, user: userData } = await authService.login(credentials);
       
-      // Store token in local storage
+      
       localStorage.setItem('token', token);
       
-      // Update context state
+      
       setUser(userData);
       setIsAuthenticated(true);
       
       return userData;
     } catch (error) {
-      // Clear any existing authentication state
+      
       setIsAuthenticated(false);
       setUser(null);
       throw error;
@@ -60,10 +58,8 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     try {
-      // Remove token from local storage
       localStorage.removeItem('token');
       
-      // Clear authentication state
       setIsAuthenticated(false);
       setUser(null);
     } catch (error) {
@@ -75,16 +71,13 @@ export const AuthProvider = ({ children }) => {
     try {
       const { token, user: userData } = await authService.register(registrationData);
       
-      // Store token in local storage
       localStorage.setItem('token', token);
       
-      // Update context state
       setUser(userData);
       setIsAuthenticated(true);
       
       return userData;
     } catch (error) {
-      // Clear any existing authentication state
       setIsAuthenticated(false);
       setUser(null);
       throw error;
@@ -95,7 +88,6 @@ export const AuthProvider = ({ children }) => {
     try {
       const updatedUser = await authService.updateProfile(profileData);
       
-      // Update user in context
       setUser(prevUser => ({
         ...prevUser,
         ...updatedUser
@@ -108,7 +100,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Prevent rendering children until auth check is complete
   if (isLoading) {
     return <div>Loading...</div>;
   }
